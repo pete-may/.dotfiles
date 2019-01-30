@@ -1,0 +1,23 @@
+#!/bin/bash
+
+### base64 encode/decode
+function bd () {
+  echo $1 | base64 -D
+}
+function be () {
+  echo -n $1 | base64
+}
+
+#   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
+#           displays paginated result with colored search terms and two lines surrounding each hit.            Example: mans mplayer codec
+#   --------------------------------------------------------------------
+function mans () {
+  man $1 | grep $2
+}
+
+#   showa: to remind yourself of an alias (given some part of it)
+#   ------------------------------------------------------------
+function showa () {
+  /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; 
+}
+

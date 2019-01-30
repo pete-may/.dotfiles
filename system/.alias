@@ -1,0 +1,77 @@
+#!/bin/bash
+
+## Makes reading directory listings easier
+## -G: colorize output, -h: sizes human readable, -F: throws a / after a directory, * after an executable, and a @ after a symlink
+alias l='ls -GFh'
+alias ls='ls -GFh'
+alias lh='ls -GFhd .[^.]*'
+
+## Source bash_profile
+alias reload="source ~/.bash_profile"
+
+## Chuck
+alias chuck="ssh petermay@chuck.dblayer.com"
+
+## Use Python3
+alias python="/usr/local/bin/python3"
+alias pip="/usr/local/bin/pip3"
+
+## Run gremlin client 
+alias janusgraph="/Users/peter.may@ibm.com/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/gremlin.sh"
+
+## cd to Compose directory
+alias compose="cd /Users/peter.may@ibm.com/Documents/Compose"
+
+## cd to Janugraph/conf directory
+alias conf="cd /Users/peter.may@ibm.com/Documents/Janusgraph/0.3.0/app/janusgraph-0.3.0-hadoop2/conf"
+
+## History
+alias h='history'
+
+## Compose prod/pre-prod
+alias pre="source ~/.dotfiles/kube/.pre_prod"
+alias prod="source ~/.dotfiles/kube/.prod"
+
+## Kube
+alias kb="kubectl"
+alias ktx="kubectx"
+alias kns="kubens"
+
+## cd
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias -- -="cd -" # Go to previous dir with -
+alias doc="cd ~/Documents"
+alias dow="cd ~/Downloads"
+alias des="cd ~/Desktop"
+alias proj="cd ~/Documents/projects"
+alias dot="cd ~/.dotfiles"
+alias scratch="cd ~/Documents/scratch"
+
+## git
+alias g="git"
+
+## grep
+alias G="| grep -i"
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '\n' | pbcopy"
+
+## ps aux
+alias p="ps aux | grep"
+
+## cat -> bat
+alias cat="bat --theme TwoDark -p"
+
+## kill
+alias k="kill -9"
+
+## find file
+alias f="find . -name "
+
+## open in finder
+alias o="open -a Finder ./"
+
+## show alias
+alias showa="cat ~/.dotfiles/system/.alias"

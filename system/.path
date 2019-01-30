@@ -1,0 +1,16 @@
+#!/bin/bash
+
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/share/python:$PATH"
+
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+export PATH="/usr/local/go/bin:$PATH"
+
+export PATH="/Users/peter.may@ibm.com/Documents/maven/apache-maven-3.5.4/bin:$PATH"
+
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+export PATH="/usr/local/opt/node@8/bin:$PATH"
+
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+

@@ -18,3 +18,5 @@ ln -s ~/.dotfiles/run/.inputrc ~/.inputrc
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 
 source ~/.bash_profile
+bind -f ~/.inputrc
+

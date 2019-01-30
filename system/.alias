@@ -17,13 +17,13 @@ alias python="/usr/local/bin/python3"
 alias pip="/usr/local/bin/pip3"
 
 ## Run gremlin client 
-alias janusgraph="/Users/peter.may@ibm.com/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/gremlin.sh"
+alias janusgraph="~/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/gremlin.sh"
 
 ## cd to Compose directory
-alias compose="cd /Users/peter.may@ibm.com/Documents/Compose"
+alias compose="cd ~/Documents/Compose"
 
 ## cd to Janugraph/conf directory
-alias conf="cd /Users/peter.may@ibm.com/Documents/Janusgraph/0.3.0/app/janusgraph-0.3.0-hadoop2/conf"
+alias conf="cd ~/Documents/Janusgraph/0.3.0/app/janusgraph-0.3.0-hadoop2/conf"
 
 ## History
 alias h='history'

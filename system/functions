@@ -21,3 +21,7 @@ function showa () {
   /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; 
 }
 
+# connect to gru hosts
+function conn () {
+  ssh -t chuck "source ~/functions/sshs ; sshs $1"
+}

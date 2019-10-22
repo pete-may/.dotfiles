@@ -1,0 +1,3 @@
+#!/bin/bash
+
+export KUBECONFIG="/Users/peter.may@ibm.com/Work/Compose/config/kubeconfig.yaml"

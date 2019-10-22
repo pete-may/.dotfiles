@@ -3,24 +3,24 @@
 ## Makes reading directory listings easier
 ## -G: colorize output, -h: sizes human readable, -F: throws a / after a directory, * after an executable, and a @ after a symlink
 alias l='ls -GFh'
-alias ls='ls -GFh'
+#alias ls='ls -GFh'
 alias lh='ls -GFhd .[^.]*'
 
 ## Source bash_profile
-alias reload="source ~/.bash_profile"
+alias reload="source ~/.bash_profile && zload"
 
 ## Chuck
-alias chuck="ssh petermay@chuck.dblayer.com"
+alias chuck="ssh chuck"
 
 ## Use Python3
-alias python="/usr/local/bin/python3"
+#alias python="/usr/local/bin/python3"
 alias pip="/usr/local/bin/pip3"
 
 ## Run gremlin client 
 alias janusgraph="~/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/gremlin.sh"
 
 ## cd to Compose directory
-alias compose="cd ~/Documents/Compose"
+alias compose="cd ~/Work/Compose"
 
 ## cd to Janugraph/conf directory
 alias conf="cd ~/Documents/Janusgraph/0.3.0/app/janusgraph-0.3.0-hadoop2/conf"
@@ -45,7 +45,7 @@ alias -- -="cd -" # Go to previous dir with -
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
 alias des="cd ~/Desktop"
-alias proj="cd ~/Documents/projects"
+alias proj="cd ~/Projects"
 alias dot="cd ~/.dotfiles"
 alias scratch="cd ~/Documents/scratch"
 
@@ -74,4 +74,21 @@ alias f="find . -name "
 alias o="open -a Finder ./"
 
 ## show alias
-alias showa="cat ~/.dotfiles/system/.alias"
+alias showa="cat ~/.dotfiles/system/aliases"
+
+## cd to ycsb
+alias yahoo="cd /opt/ycsb/ycsb-0.15.0"
+
+## URL encode
+alias urldecode='python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
+alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
+
+## mal
+alias mal='source ~/.dotfiles/compose/.malpractice && cd ~/Work/Compose/malpractice && bundle exec mal'
+
+## ibmcloud
+alias ic='ibmcloud'
+
+alias fastai='ssh pmay@169.48.245.197'
+
+alias ic='ibmcloud'

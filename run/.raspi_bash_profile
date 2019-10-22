@@ -1,0 +1,2 @@
+export LSCOLORS="exfxcxdxcxegedabagacad"
+tmux attach || tmux new -s Main

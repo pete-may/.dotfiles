@@ -24,6 +24,11 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+" scroll one line
+:map <ScrollWheelUp> <C-Y>
+:map <ScrollWheelDown> <C-E>
+
+
 
 " Must have options 
 "------------------------------------------------------------
@@ -58,10 +63,12 @@ set smartcase
 " Hit space to insert a character and return to normal mode
 :nnoremap <Space> i_<Esc>r
 
-" Map quit vim to 'zz'
-:nmap zz :q<Enter>
-inoremap jj <ESC>
+" Map quit vim to 'ctrl-c'
+:inoremap <C-c> <C-[>
 
 " Pathogen
 source ~/.dotfiles/vim/autoload/pathogen.vim
 execute pathogen#infect('~/.dotfiles/vim/bundle/{}')
+nnoremap gb :bn<cr>
+nnoremap gB :bp<cr>
+:set mouse=n

@@ -7,6 +7,8 @@ syntax on
 " Colorscheme
 colorscheme minimalist 
 
+set backspace=indent,eol,start
+
 " Search
 set incsearch
 
@@ -27,6 +29,13 @@ set expandtab
 " scroll one line
 :map <ScrollWheelUp> <C-Y>
 :map <ScrollWheelDown> <C-E>
+
+
+" copy/paste to clipboard
+" set clipboard=unnamed
+
+" Set words with dashes as words
+set iskeyword+=-
 
 
 
@@ -63,12 +72,15 @@ set smartcase
 " Hit space to insert a character and return to normal mode
 :nnoremap <Space> i_<Esc>r
 
-" Map quit vim to 'ctrl-c'
+" Map quit insert mode to 'ctrl-c'
 :inoremap <C-c> <C-[>
+
+inoremap xx <Esc>
 
 " Pathogen
 source ~/.dotfiles/vim/autoload/pathogen.vim
 execute pathogen#infect('~/.dotfiles/vim/bundle/{}')
 nnoremap gb :bn<cr>
 nnoremap gB :bp<cr>
-:set mouse=n
+set ttymouse=xterm2
+set mouse=a

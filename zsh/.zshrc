@@ -80,7 +80,7 @@ autoload -U compinit
 rm -f ~/.zcompdump
 compinit
 
-fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.3/functions)
+#fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.3/functions)
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _complete

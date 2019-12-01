@@ -80,8 +80,8 @@ alias showa="cat ~/.dotfiles/system/aliases"
 alias yahoo="cd /opt/ycsb/ycsb-0.15.0"
 
 ## URL encode
-alias urldecode='python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
-alias urlencode='python -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
+alias url-decode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
+alias url-encode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
 
 ## mal
 alias mal='source ~/.dotfiles/compose/.malpractice && cd ~/Work/Compose/malpractice && bundle exec mal'

@@ -18,6 +18,9 @@ echo "Setting up vim..."
 ln -s $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
 mkdir $HOME/.vim
 ln -s $HOME/.dotfiles/vim/colors $HOME/.vim/colors 
+
+echo "Install YCM dependencies"
+sudo apt-get install build-essential cmake python3-dev
 cd $HOME/.dotfiles/vim/bundle/YouCompleteMe
 python3 install.py
 

@@ -4,3 +4,15 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "zsh/zsh-history-substring-search"]
+	path = zsh/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = https://github.com/sindresorhus/pure
+[submodule "zsh/zsh-completions"]
+	path = zsh/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+[submodule "zsh/zsh-kubectl-prompt"]
+	path = zsh/zsh-kubectl-prompt
+	url = https://github.com/superbrothers/zsh-kubectl-prompt

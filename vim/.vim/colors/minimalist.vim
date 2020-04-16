@@ -36,7 +36,7 @@ hi LineNr           ctermfg=59      ctermbg=NONE     cterm=NONE      guifg=#5F5F
 hi MatchParen       ctermfg=NONE    ctermbg=NONE    cterm=underline guifg=NONE          guibg=NONE      gui=underline
 hi MoreMsg          ctermfg=150     ctermbg=NONE    cterm=NONE      guifg=#AFD787       guibg=NONE      gui=NONE
 hi NonText          ctermfg=234     ctermbg=NONE     cterm=NONE      guifg=#1C1C1C       guibg=#1C1C1C   gui=NONE
-hi Normal           ctermfg=255     ctermbg=NONE     cterm=NONE      guifg=#EEEEEE       guibg=#1C1C1C   gui=NONE
+hi Normal           ctermfg=255     ctermbg=233    cterm=NONE      guifg=#EEEEEE       guibg=#1C1C1C   gui=NONE
 hi Pmenu            ctermfg=NONE    ctermbg=NONE    cterm=NONE      guifg=NONE          guibg=NONE      gui=NONE
 hi PmenuSel         ctermfg=NONE    ctermbg=59      cterm=NONE      guifg=NONE          guibg=#5F5F5F   gui=NONE
 hi Question         ctermfg=150     ctermbg=NONE    cterm=NONE      guifg=#AFD787       guibg=NONE      gui=bold

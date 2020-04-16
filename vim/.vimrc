@@ -1,10 +1,11 @@
-" Features
-"-----------------------------------------------------------
+" .vimrc
 
-" Enable syntax highlighting
+" ===========================================================
+" ========                 Settings                  ========
+" ===========================================================
+
+" Enable syntax highlighting and set colorscheme
 syntax on
-
-" Colorscheme
 colorscheme minimalist 
 
 set backspace=indent,eol,start
@@ -13,7 +14,7 @@ set backspace=indent,eol,start
 set incsearch
 
 " Toggle line numbers with Ctr-N, Ctr-N
-:nmap <C-N><C-N> :set invnumber<CR>
+set number
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -26,61 +27,114 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-" scroll one line
-:map <ScrollWheelUp> <C-Y>
-:map <ScrollWheelDown> <C-E>
-
-
-" copy/paste to clipboard
-" set clipboard=unnamed
+" scroll one line (I commented out because of disabled mouse)
+" :map <ScrollWheelUp> <C-Y>
+" :map <ScrollWheelDown> <C-E>
 
 " Set words with dashes as words
 set iskeyword+=-
 
-
-
-" Must have options 
-"------------------------------------------------------------
-
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and swap files will keep you safe if your computer
-" crashes.
+" Switch from an unsaved buffer without saving it first.
 set hidden
 
 " Better command-line completion
-set wildmenu
+set wildchar=<Tab> wildmenu wildmode=longest,list,full
 
 " Show partial commands in the last line of the screen
 set showcmd
 
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
-" mapping of <C-L> below)
+" Highlight searches 
 set hlsearch
-
-" Usability options
-"------------------------------------------------------------
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
 
-" Hit space to insert a character and return to normal mode
-:nnoremap <Space> i_<Esc>r
+set ttymouse=xterm2
+set mouse-=a
+
+
+" Status Line {  
+        set laststatus=2                             " always show statusbar  
+        set statusline=  
+        set statusline+=%-10.3n\                     " buffer number  
+        set statusline+=%f\                          " filename   
+        set statusline+=%h%m%r%w                     " status flags  
+        set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type  
+        set statusline+=%=                           " right align remainder  
+        set statusline+=0x%-8B                       " character value  
+        set statusline+=%-14(%l,%c%V%)               " line, character  
+        set statusline+=%<%P                         " file position  
+"}
+
+set autochdir
+
+let mapleader = " "
+
+set splitbelow
+set splitright
+
+
+" ===========================================================
+" ========                 Bindings                  ========
+" ===========================================================
+
+:nmap <C-N><C-N> :set number!<CR>
+:nmap <C-N><C-R> :set relativenumber!<CR>
 
 " Map quit insert mode to 'ctrl-c'
 :inoremap <C-c> <C-[>
 
 inoremap xx <Esc>
-
-" Pathogen
-source ~/.dotfiles/vim/autoload/pathogen.vim
-execute pathogen#infect('~/.dotfiles/vim/bundle/{}')
 nnoremap gb :bn<cr>
 nnoremap gB :bp<cr>
-set ttymouse=xterm2
-set mouse=a
+
+nnoremap <Leader>bn :bn<CR>
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bl :ls<CR>:b<Space>
+nnoremap <Leader>bb :b <C-d> 
+
+
+" ===========================================================
+" ========                 Plugins                   ========
+" ===========================================================
+
+" vim-slime
+let g:slime_target = "tmux"
+
+" vim-arpeggio
+packadd vim-arpeggio
+Arpeggio inoremap jk <Esc>
+
+" vimux
+let g:VimuxHeight = "25"
+command VimuxFocusRunner :call _VimuxTmux("select-"._VimuxRunnerType()." -t ".g:VimuxRunnerIndex)
+map <Leader>sml :call VimuxRunCommand("sml")<CR> :call VimuxSendText("use \"" . bufname("%") . "\"\\;")<CR> :VimuxFocusRunner<CR>
+map <Leader>py :call VimuxRunCommand("python3")<CR> :VimuxFocusRunner<CR>
+map <Leader><Leader> :call VimuxOpenRunner()<CR> :VimuxFocusRunner<CR>
+map <Leader>z :call VimuxZoomRunner()<CR>
+
+" tcomment_vim 
+map <Leader>/ gcc
+vmap <Leader>/ gc
+
+" fzf.vim
+set rtp+=/usr/local/opt/fzf
+nmap <Leader>bb :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :History:<CR>
+
+" vim-markdown-preview
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
+let vim_markdown_preview_toggle=1
+
+" vim-bufkill
+map <Leader>bd :BD<CR>
+
+
+" ===========================================================
+" ========                 New Stuff                   ========
+" ===========================================================
+
+

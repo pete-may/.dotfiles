@@ -1,99 +1,111 @@
-# this is my .zshrc
-#
-# plugins used
-#   - zsh-history-substring-search (brew)
-#   - zsh-completions (brew)
-# prompt
-#   - pure (npm, located in $HOME) 
+# .zshrc
+
+# ===========================================================
+# ========                 Bash                      ========
+# ===========================================================
+
+for DOTFILE in `find ~/.dotfiles/bash`
+do
+    [ -f $DOTFILE ] && source $DOTFILE
+done
 
 
-source $HOME/.bash_profile       # load my dot files
+# ===========================================================
+# ========                 Prompt                    ========
+# ===========================================================
 
-fpath+=("$HOME/.dotfiles/zsh/zsh-completions/src")
+# Pure
 fpath+=("$HOME/.dotfiles/zsh/pure")
 
-
-# kill non-alphanumeric characters
-#backward-kill-dir () {
-#    local WORDCHARS=${WORDCHARS/\/}
-#    zle backward-kill-word
-#}
-#zle -N backward-kill-dir
-#bindkey '^[^?' backward-kill-dir
-
-export WORDCHARS='-'
-
-# paste stuff
-paste_widget() LBUFFER+=$(pbpaste) 
-zle -N paste_widget
-bindkey "\ev" paste_widget
-
-
-# PROMPT 
-####################
 autoload -U promptinit; promptinit
-#source ~/zsh_stuff/lean/lean.plugin.zsh
-# change the path color
-#zstyle :prompt:pure:path color 111 
-#zstyle :prompt:pure:path color 108
-#zstyle :prompt:pure:path color 114 
-#zstyle :prompt:pure:path color 123
-zstyle :prompt:pure:path color 009 
- 
 
-# change the color for both `prompt:success` and `prompt:error`
+zstyle ':prompt:pure:path' color 009 
 zstyle ':prompt:pure:prompt:success' color 104 
 zstyle ':prompt:pure:prompt:error' color 104 
-#zstyle ':prompt:pure:git:branch' color 229
 zstyle ':prompt:pure:git:branch' color 242 
-#zstyle ':prompt:pure:prompt:success' color 110 
-#zstyle ':prompt:pure:prompt:error' color 110
+
 PURE_PROMPT_SYMBOL=""
 prompt pure
 
-## kube
+
+# ===========================================================
+# ========                  Kube                     ========
+# ===========================================================
+
 autoload -U colors; colors
+
 source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
+
 RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
-####################
 
 
-# HISTORY 
-####################
+# ===========================================================
+# ========                 History                   ========
+# ===========================================================
+
 source $HOME/.dotfiles/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=""       # turn off search highlight on found
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=""   # turn off searhc highlight on not found
 
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=""       # turn off search highlight on found
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=""   # turn off searhc highlight on not found
-####################
 
+# ===========================================================
+# ========                Completion                 ========
+# ===========================================================
 
-# COMPLETION 
-####################
+fpath+=("$HOME/.dotfiles/zsh/zsh-completions/src")
+
 autoload -U compinit
-rm -f ~/.zcompdump
-compinit
 
-#fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.3/functions)
+rm -f ~/.zcompdump
+
+compinit
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
 bindkey '^[[Z' reverse-menu-complete
-####################
 
 
-# MISC (not sure these work yet)
-####################
+# ===========================================================
+# ========                   fzf                     ========
+# ===========================================================
 
-# fix for cmd-arrow keys movement 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# ===========================================================
+# ========                Settings                   ========
+# ===========================================================
+
+# General zshzle options
+setopt autocd                     # cd by just typing in a directory name
+setopt nomatch                    # warn me if a glob doesn't match anything
+setopt no_case_glob               # globbing is case insensitive
+setopt interactive_comments       # commands preceded with '#' aren't run
+setopt share_history
+
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+
+# Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+export KEYTIMEOUT=1
+export WORDCHARS='-'
+
+# # fix for cmd-arrow keys movement 
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[7~" beginning-of-line
@@ -103,16 +115,19 @@ bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
-# General zshzle options
-setopt autocd                     # cd by just typing in a directory name
-setopt nomatch                    # warn me if a glob doesn't match anything
-setopt no_case_glob               # globbing is case insensitive
-setopt interactive_comments       # commands preceded with '#' aren't run
-#setopt menu_complete              # Show completions like Vim (cycle through)
-setopt share_history
+# set zle to vi mode
+# bindkey -v
 
-alias zload="source $HOME/.zshrc" # reload .zshrc
-####################
+# bindkey "^W" backward-kill-word
+# bindkey "^?" backward-delete-char
+# bindkey "^H" backward-delete-char      # Control-h also deletes the previous char
+# bindkey "^U" backward-kill-line
+#
+# bindkey 'jk' vi-cmd-mode
+# bindkey 'kj' vi-cmd-mode
 
-# terraform
-export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+
+# ===========================================================
+# ========                  New stuff                ========
+# ===========================================================
+

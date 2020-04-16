@@ -13,10 +13,8 @@ if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.bak
 fi
 
-ln -s ~/.dotfiles/run/.bash_profile ~/.bash_profile
-ln -s ~/.dotfiles/run/.inputrc ~/.inputrc
+ln -s ~/.dotfiles/bash/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 
 source ~/.bash_profile
-bind -f ~/.inputrc
 

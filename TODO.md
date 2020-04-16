@@ -1,4 +1,8 @@
-- add vim folder and link colors to it
-- make different setup for raspi vs. macos
-- add cellar packages but for raspi (armfh?)
-
+- Refactoring
+  - look at directory structure
+  - look at individual settings in rc files
+  - look at bash files
+- dev
+  - verify remote setup
+  - workon install scripts (raspi)
+- figure out submodules

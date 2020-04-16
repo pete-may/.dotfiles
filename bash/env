@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 
 ### Colors
 ## Change bash prompt to be colorized, rearranges prompt to be: "username@hostname:cwd $ "
@@ -23,7 +23,7 @@ export PIXIEDUST_TEST_INPUT=/Users/peter.may@ibm.com/Documents/Github/pixiedust/
 
 export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 
-export KUBECONFIG="/Users/peter.may@ibm.com/Work/Compose/config/kubeconfig.yaml"
+export KUBECONFIG="/Users/peter.may@ibm.com/Work/Compose/k8s/kubeconfigs/kubeconfig.yaml"
 
 export BAT_CONFIG_PATH="/Users/peter.may@ibm.com/.dotfiles/misc/bat.conf"
 
@@ -32,3 +32,15 @@ export VM_DIR="$HOME/.nvm"
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 export GOPATH="$HOME/go"
+
+# FZF
+#export FZF_DEFAULT_COMMAND="fd . $HOME"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --hidden --type d'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+

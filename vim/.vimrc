@@ -102,10 +102,6 @@ nnoremap <Leader>bb :b <C-d>
 " vim-slime
 let g:slime_target = "tmux"
 
-" vim-arpeggio
-packadd vim-arpeggio
-Arpeggio inoremap jk <Esc>
-
 " vimux
 let g:VimuxHeight = "25"
 command VimuxFocusRunner :call _VimuxTmux("select-"._VimuxRunnerType()." -t ".g:VimuxRunnerIndex)

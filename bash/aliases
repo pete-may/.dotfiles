@@ -38,6 +38,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 alias -- -="cd -" # Go to previous dir with -
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"

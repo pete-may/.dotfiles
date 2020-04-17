@@ -1,0 +1,54 @@
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = https://github.com/sindresorhus/pure
+[submodule "zsh/zsh-completions"]
+	path = zsh/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+[submodule "vim/.vim/pack/vendor/start/VimCompletesMe"]
+	path = vim/.vim/pack/vendor/start/VimCompletesMe
+	url = https://github.com/ajh17/VimCompletesMe
+[submodule "zsh/zsh-history-substring-search"]
+	path = zsh/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "zsh/zsh-kubectl-prompt"]
+	path = zsh/zsh-kubectl-prompt
+	url = https://github.com/superbrothers/zsh-kubectl-prompt
+[submodule "vim/.vim/pack/vendor/start/bufexplorer"]
+	path = vim/.vim/pack/vendor/start/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer
+[submodule "vim/.vim/pack/vendor/start/pear-tree"]
+	path = vim/.vim/pack/vendor/start/pear-tree
+	url = https://github.com/tmsvg/pear-tree
+[submodule "vim/.vim/pack/vendor/start/ale"]
+	path = vim/.vim/pack/vendor/start/ale
+	url = https://github.com/dense-analysis/ale
+[submodule "vim/.vim/pack/vendor/start/fzf.vim"]
+	path = vim/.vim/pack/vendor/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "vim/.vim/pack/vendor/start/tcomment_vim"]
+	path = vim/.vim/pack/vendor/start/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim
+[submodule "vim/.vim/pack/vendor/start/vim-bufkill"]
+	path = vim/.vim/pack/vendor/start/vim-bufkill
+	url = https://github.com/qpkorr/vim-bufkill
+[submodule "vim/.vim/pack/vendor/start/vim-endwise"]
+	path = vim/.vim/pack/vendor/start/vim-endwise
+	url = https://github.com/tpope/vim-endwise
+[submodule "vim/.vim/pack/vendor/start/vim-markdown-preview"]
+	path = vim/.vim/pack/vendor/start/vim-markdown-preview
+	url = https://github.com/JamshedVesuna/vim-markdown-preview
+[submodule "vim/.vim/pack/vendor/start/vim-polyglot"]
+	path = vim/.vim/pack/vendor/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "vim/.vim/pack/vendor/start/vim-rsi"]
+	path = vim/.vim/pack/vendor/start/vim-rsi
+	url = https://github.com/tpope/vim-rsi
+[submodule "vim/.vim/pack/vendor/start/vim-slime"]
+	path = vim/.vim/pack/vendor/start/vim-slime
+	url = https://github.com/jpalardy/vim-slime
+[submodule "vim/.vim/pack/vendor/start/vim-tmux-navigator"]
+	path = vim/.vim/pack/vendor/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "vim/.vim/pack/vendor/start/vimux"]
+	path = vim/.vim/pack/vendor/start/vimux
+	url = https://github.com/benmills/vimux

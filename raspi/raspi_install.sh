@@ -16,6 +16,6 @@ ln -s $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
 echo "Setting up vim..."
 ln -s $HOME/.dotfiles/vim/.vimrc $HOME/.vimrc
 mkdir -p $HOME/.vim
-ln -s $HOME/.dotfiles/vim/colors $HOME/.vim/colors 
+ln -s $HOME/.dotfiles/vim/.vim $HOME/.vim 
 
 chsh -s /bin/zsh

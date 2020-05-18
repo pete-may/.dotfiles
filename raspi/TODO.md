@@ -1,0 +1,7 @@
+- Remove kube thing on right
+- Fix vim path
+- Install cool binaries like fzf, rg
+- Fix tmux 
+- Fix font
+- Fix colors
+- Bring back zlogin

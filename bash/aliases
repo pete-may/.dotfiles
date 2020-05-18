@@ -19,8 +19,8 @@ alias pip="/usr/local/bin/pip3"
 ## Run gremlin client 
 alias janusgraph="~/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/gremlin.sh"
 
-## cd to Compose directory
-alias compose="cd ~/Work/Compose"
+## cd to Work directory
+alias work="cd ~/Work"
 
 ## cd to Janugraph/conf directory
 alias conf="cd ~/Documents/Janusgraph/0.3.0/app/janusgraph-0.3.0-hadoop2/conf"
@@ -95,6 +95,12 @@ alias sml='rlwrap sml'
 
 alias resetmouse='printf "\e[?1000l"'
 
-alias work='DIR=`fd --type d -d 1 . $HOME/Work/Compose | fzf --delimiter / --with-nth -1` && if [ -z $DIR ]; then cd ~/Compose/Work; else cd "$DIR"; fi'
+alias compose='DIR=`fd --type d -d 1 . $HOME/Work/Compose | fzf --delimiter / --with-nth -1` && if [ -z $DIR ]; then cd ~/Compose/Work; else cd "$DIR"; fi'
 
 alias zload="source $HOME/.zshrc" # reload .zshrc
+
+alias surgery-table='source ~/Work/Compose/config/.surgery-table && ~/Work/Compose/surgery-table/surgery-table'
+
+alias resetkb='export KUBECONFIG=~/Work/Compose/k8s/kubeconfigs/kubeconfig.yaml'
+
+alias switchu='"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession" -suspend'

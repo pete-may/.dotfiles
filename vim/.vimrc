@@ -87,7 +87,7 @@ set splitright
 
 inoremap xx <Esc>
 nnoremap gb :bn<cr>
-nnoremap gB :bp<cr>
+nnoremap gp :bp<cr>
 
 nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bp :bp<CR>

@@ -24,7 +24,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux attach -t Dev || tmux new -s Dev"
+    - "tmux attach -t Main || tmux new -s Main"
       
 # Colors (Blood Moon)
 colors:
@@ -54,3 +54,11 @@ colors:
     magenta: '#FF1493'
     cyan:    '#00CCCC'
     white:   '#FFFAFA'
+
+key_bindings:
+  - { key: F,  mods: Alt,           chars: "\x1bf"                       }
+  - { key: B,  mods: Alt,           chars: "\x1bb"                       }
+  # - { key: Left,     mods: Alt,     chars: "\x1bb"                       }
+  # - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
+  # - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
+  # - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End

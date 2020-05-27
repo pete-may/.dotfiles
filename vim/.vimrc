@@ -20,11 +20,11 @@ set number
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 filetype indent plugin on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
+" show existing tab with 2 spaces width
+set tabstop=2
+" when indenting with '>', use 2 spaces width
 set shiftwidth=4
-" On pressing tab, insert 4 spaces
+" On pressing tab, insert 2 spaces
 set expandtab
 
 " scroll one line (I commented out because of disabled mouse)
@@ -93,6 +93,9 @@ nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bl :ls<CR>:b<Space>
 nnoremap <Leader>bb :b <C-d> 
+
+nnoremap <Leader>% :vsp<CR>
+nnoremap <Leader>" :sp<CR>
 
 
 " ===========================================================

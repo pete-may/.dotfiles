@@ -104,3 +104,5 @@ alias surgery-table='source ~/Work/Compose/config/.surgery-table && ~/Work/Compo
 alias resetkb='export KUBECONFIG=~/Work/Compose/k8s/kubeconfigs/kubeconfig.yaml'
 
 alias switchu='"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession" -suspend'
+
+alias ctags="`brew --prefix`/bin/ctags"

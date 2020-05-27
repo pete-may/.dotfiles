@@ -22,3 +22,7 @@ ln -s ~/.dotfiles/vim/.vim ~/.vim
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+
+# alacritty
+mkdir -p ~/.config/alacritty
+ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty.yml

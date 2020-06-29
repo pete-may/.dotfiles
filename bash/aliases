@@ -106,3 +106,5 @@ alias resetkb='export KUBECONFIG=~/Work/Compose/k8s/kubeconfigs/kubeconfig.yaml'
 alias switchu='"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession" -suspend'
 
 alias ctags="`brew --prefix`/bin/ctags"
+
+alias gogo="cd ~/go/src/github.ibm.com/compose"

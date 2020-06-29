@@ -17,7 +17,7 @@ font:
     family: Hack
     # Style can be specified to pick a specific face.
     # style: Italic
-  size: 15.0
+  size: 14.0
 
 shell:
   program: /bin/zsh
@@ -62,3 +62,4 @@ key_bindings:
   # - { key: Right,    mods: Alt,     chars: "\x1bf"                       }
   # - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
   # - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
+  - { key: Key6,        mods: Control, chars: "\x1e"                     }

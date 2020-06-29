@@ -1,5 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/peter.may@ibm.com/Documents'
+let g:netrw_dirhist_9='/Users/peter.may@ibm.com/Documents/Virtualenvs'
+let g:netrw_dirhist_8='/Users/peter.may@ibm.com/Documents'
+let g:netrw_dirhist_7='/Users/peter.may@ibm.com/.config/kitty'
+let g:netrw_dirhist_6='/Users/peter.may@ibm.com/.config'
+let g:netrw_dirhist_5='/Users/peter.may@ibm.com/.config/kitty'
 let g:netrw_dirhist_4='/Users/peter.may@ibm.com/.tmux'
 let g:netrw_dirhist_3='/Users/peter.may@ibm.com/.dotfiles/bash'
 let g:netrw_dirhist_2='/Users/peter.may@ibm.com/.dotfiles/vim'

@@ -25,3 +25,9 @@ function showa () {
 function conn () {
   ssh -t chuck "source ~/functions/sshs ; sshs $1"
 }
+
+# print k8s secret
+function kbs () {
+  kubectl get secret $1 -o yaml 
+}
+

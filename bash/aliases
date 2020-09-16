@@ -22,6 +22,9 @@ alias janusgraph="~/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/
 ## cd to Work directory
 alias work="cd ~/Work"
 
+## cd to icd directory
+alias icd="cd ~/Work/ibm-cloud-databases/"
+
 ## cd to Janugraph/conf directory
 alias conf="cd ~/Documents/Janusgraph/0.3.0/app/janusgraph-0.3.0-hadoop2/conf"
 
@@ -82,7 +85,8 @@ alias url-decode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_p
 alias url-encode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
 
 ## mal
-alias mal='source ~/Work/Compose/config/.malpractice && cd ~/Work/Compose/malpractice && bundle exec mal'
+# alias mal='source ~/Work/Compose/config/.malpractice && cd ~/Work/Compose/malpractice && bundle exec mal'
+alias mal='source ~/Work/Compose/config/.malpractice && bundle exec ~/Work/Compose/malpractice/mal'
 
 ## ibmcloud
 alias ic='ibmcloud'
@@ -108,3 +112,7 @@ alias switchu='"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Reso
 alias ctags="`brew --prefix`/bin/ctags"
 
 alias gogo="cd ~/go/src/github.ibm.com/compose"
+
+alias console="~/Work/Compose/scripts/get-console"
+
+alias gru-console='~/Work/Compose/scripts/get-console gru web "bundle exec rake console"'

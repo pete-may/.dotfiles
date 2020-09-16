@@ -67,7 +67,7 @@ autoload -U compinit
 
 rm -f ~/.zcompdump
 
-compinit
+compinit -i
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _complete

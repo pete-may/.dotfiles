@@ -97,6 +97,8 @@ nnoremap <Leader>bb :b <C-d>
 nnoremap <Leader>% :vsp<CR>
 nnoremap <Leader>" :sp<CR>
 
+nnoremap <Leader>W :g/^$/d<CR>gg<c-v>GI"<esc>gg<c-v>G$A",<esc>ggVGJ$xa]<esc>0i[<esc>
+
 
 " ===========================================================
 " ========                 Plugins                   ========
@@ -140,3 +142,5 @@ map <Leader>bd :BD<CR>
 set title
 " configure title to look like: Vim /path/to/file
 set titlestring=vim\ %-25.55F\ %a%r%m titlelen=70
+
+inoremap <Tab> <C-X><C-F>

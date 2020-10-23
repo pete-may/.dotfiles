@@ -32,11 +32,11 @@ prompt pure
 # ========                  Kube                     ========
 # ===========================================================
 
-autoload -U colors; colors
-
-source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
-
-RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+# autoload -U colors; colors
+#
+# source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
+#
+# RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
 # ===========================================================

@@ -19,10 +19,15 @@ fi
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim/.vim ~/.vim
 
-ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 
-# alacritty
-mkdir -p ~/.config/alacritty
-ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty.yml
+# kitty
+mkdir -p ~/.config/kitty
+ln -s ~/.dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+
+brew install fzf
+brew install bat
+brew install ripgrep
+brew install fd
+brew install python3
+

@@ -50,5 +50,5 @@
 	path = vim/.vim/pack/vendor/start/vimux
 	url = https://github.com/benmills/vimux
 [submodule "vim/.vim/pack/vendor/start/vim-kitty-navigator"]
-    path = vim/.vim/pack/vendor/start/vim-kitty-navigator
-    url = https://github.com/knubie/vim-kitty-navigator
+	path = vim/.vim/pack/vendor/start/vim-kitty-navigator
+	url = https://github.com/knubie/vim-kitty-navigator

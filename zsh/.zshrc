@@ -19,7 +19,8 @@ fpath+=("$HOME/.dotfiles/zsh/pure")
 
 autoload -U promptinit; promptinit
 
-zstyle ':prompt:pure:path' color 009 
+# zstyle ':prompt:pure:path' color 009 
+zstyle ':prompt:pure:path' color 048
 zstyle ':prompt:pure:prompt:success' color 104 
 zstyle ':prompt:pure:prompt:error' color 104 
 zstyle ':prompt:pure:git:branch' color 242 
@@ -32,11 +33,11 @@ prompt pure
 # ========                  Kube                     ========
 # ===========================================================
 
-# autoload -U colors; colors
-#
-# source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
-#
-# RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+autoload -U colors; colors
+
+source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
+
+RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
 # ===========================================================
@@ -105,6 +106,9 @@ bindkey '^x^e' edit-command-line
 export KEYTIMEOUT=1
 export WORDCHARS='-'
 
+export ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
+
+
 # # fix for cmd-arrow keys movement 
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
@@ -131,3 +135,5 @@ bindkey "\e[F" end-of-line
 # ========                  New stuff                ========
 # ===========================================================
 
+eval "$(rbenv init -)"
+export PATH="/usr/local/opt/libpq/bin:$PATH"

@@ -6,9 +6,6 @@ alias l='ls -GFh'
 #alias ls='ls -GFh'
 alias lh='ls -GFhd .[^.]*'
 
-## Source bash_profile
-alias reload="source ~/.bash_profile && zload"
-
 ## Chuck
 alias chuck="ssh chuck && ^="
 
@@ -32,7 +29,7 @@ alias conf="cd ~/Documents/Janusgraph/0.3.0/app/janusgraph-0.3.0-hadoop2/conf"
 alias h='history'
 
 ## Kube
-alias kb="kubectl"
+alias k="kubectl"
 alias ktx="kubectx"
 alias kns="kubens"
 
@@ -64,9 +61,6 @@ alias p="ps aux | grep"
 
 ## cat -> bat
 alias cat="bat --theme TwoDark -p"
-
-## kill
-alias k="kill -9"
 
 ## find file
 alias f="find . -name "
@@ -105,7 +99,7 @@ alias zload="source $HOME/.zshrc" # reload .zshrc
 
 alias surgery-table='source ~/Work/Compose/config/.surgery-table && ~/Work/Compose/surgery-table/surgery-table'
 
-alias resetkb='export KUBECONFIG=~/Work/Compose/k8s/kubeconfigs/kubeconfig.yaml'
+alias resetk='export KUBECONFIG=~/Work/Compose/k8s/kubeconfigs/kubeconfig.yaml'
 
 alias switchu='"/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession" -suspend'
 
@@ -116,3 +110,7 @@ alias gogo="cd ~/go/src/github.ibm.com/compose"
 alias console="~/Work/Compose/scripts/get-console"
 
 alias gru-console='~/Work/Compose/scripts/get-console gru web "bundle exec rake console"'
+
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'

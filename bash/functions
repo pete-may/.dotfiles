@@ -27,7 +27,21 @@ function conn () {
 }
 
 # print k8s secret
-function kbs () {
+function ks () {
   kubectl get secret $1 -o yaml 
 }
 
+# print k8s configmap 
+function kcm () {
+  kubectl get cm $1 -o yaml 
+}
+
+# print k8s pod logs 
+function kl () {
+  kubectl logs $1 -f
+}
+
+# print k8s pod logs 
+function kpo () {
+  kubectl get po -l release=$1 
+}

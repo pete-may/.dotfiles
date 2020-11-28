@@ -6,18 +6,13 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 export PATH="/usr/local/go/bin:$PATH"
 
-export PATH="/Users/peter.may@ibm.com/Documents/maven/apache-maven-3.5.4/bin:$PATH"
-
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
-export PATH="/Users/peter.may@ibm.com/Documents/Compose/scripts:$PATH"
-
-export PATH="/Users/peter.may@ibm.com/.rbenv/bin:$PATH"
+export PATH="~/.rbenv/bin:$PATH"
 
 export PATH="/usr/local/smlnj/bin:$PATH"
 
-export PATH="/Users/peter.may@ibm.com/bin:$PATH"

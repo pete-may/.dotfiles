@@ -50,7 +50,6 @@ set hlsearch
 set ignorecase
 set smartcase
 
-set ttymouse=xterm2
 set mouse-=a
 
 
@@ -144,3 +143,6 @@ set title
 set titlestring=vim\ %-25.55F\ %a%r%m titlelen=70
 
 inoremap <Tab> <C-X><C-F>
+
+let g:rooter_silent_chdir = 1
+

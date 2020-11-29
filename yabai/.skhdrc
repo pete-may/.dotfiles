@@ -44,7 +44,7 @@ alt - e : yabai -m space --layout bsp
 alt - t : yabai -m space --layout stack
 
 # toggle window zoom
-alt - f : yabai -m window --toggle zoom-fullscreen
+alt - space : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 alt - y : yabai -m window --toggle split
@@ -53,9 +53,9 @@ alt - y : yabai -m window --toggle split
 alt - r : yabai -m window --toggle float
 
 # stack current window onto (direction) window
-alt - up : yabai -m window --stack north 
-alt - left : yabai -m window --stack west
-alt - down : yabai -m window --stack south 
-alt - right : yabai -m window --stack east 
+alt + ctrl - h : yabai -m window --stack west
+alt + ctrl - j : yabai -m window --stack south 
+alt + ctrl - k : yabai -m window --stack north 
+alt + ctrl - l : yabai -m window --stack east 
  
 

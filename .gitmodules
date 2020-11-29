@@ -52,3 +52,9 @@
 [submodule "vim/.vim/pack/vendor/start/vim-kitty-navigator"]
 	path = vim/.vim/pack/vendor/start/vim-kitty-navigator
 	url = https://github.com/knubie/vim-kitty-navigator
+[submodule "vim/.vim/pack/vendor/start/vim-rooter"]
+	path = vim/.vim/pack/vendor/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter
+[submodule "vim/.vim/pack/vendor/start/vim-startify"]
+	path = vim/.vim/pack/vendor/start/vim-startify
+	url = https://github.com/mhinz/vim-startify

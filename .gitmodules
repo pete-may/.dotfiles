@@ -58,3 +58,6 @@
 [submodule "vim/.vim/pack/vendor/start/vim-startify"]
 	path = vim/.vim/pack/vendor/start/vim-startify
 	url = https://github.com/mhinz/vim-startify
+[submodule "kitty/kitty-themes"]
+	path = kitty/kitty-themes
+	url = https://github.com/dexpota/kitty-themes

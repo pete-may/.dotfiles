@@ -19,14 +19,14 @@
  '(custom-safe-themes
    '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "e7f49a69d5fed5597d37b0711ca195fd632b9b08993194cb2f1d36dd1f7b20a0" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "2c613514f52fb56d34d00cc074fe6b5f4769b4b7f0cc12d22787808addcef12c" "c0a0c2f40c110b5b212eb4f2dad6ac9cac07eb70380631151fa75556b0100063" "3325e2c49c8cc81a8cc94b0d57f1975e6562858db5de840b03338529c64f58d1" "21055a064d6d673f666baaed35a69519841134829982cbbb76960575f43424db" default))
  '(package-selected-packages
-   '(org-autolist real-auto-save org org-bullets doom-themes zenburn-theme spacemacs-theme no-littering org-journal general smex magit fontawesome mood-line evil-commentary smart-mode-line which-key undo-tree counsel projectile evil))
+   '(ayu-theme use-package org-autolist real-auto-save org org-bullets doom-themes zenburn-theme spacemacs-theme no-littering org-journal general smex magit fontawesome mood-line evil-commentary smart-mode-line which-key undo-tree counsel projectile evil))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "black" :foreground "#c3c0bb" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 151 :width normal :foundry "nil" :family "Menlo"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 151 :width normal :foundry "nil" :family "Menlo"))))
  '(org-document-title ((t (:foreground "#81A1C1" :weight bold :height 1.5))))
  '(org-level-1 ((t (:inherit outline-1 :extend nil :height 1.25))))
  '(org-level-2 ((t (:inherit outline-2 :extend nil :height 1.1)))))
@@ -50,9 +50,9 @@
 (which-key-mode)
 (evil-commentary-mode)        ;;; gcc to comment lines in evil mode
 (set-face-attribute 'default nil :family "Menlo" :height 150 :weight 'normal)
-(menu-bar-showhide-tool-bar-menu-customize-disable)
-(unless (display-graphic-p)
-   (menu-bar-mode -1))
+;; (menu-bar-showhide-tool-bar-menu-customize-disable)
+;; (unless (display-graphic-p)
+;;    (menu-bar-mode -1))
 (savehist-mode 1)
 (setq help-window-select t)
 
@@ -105,6 +105,7 @@
 (setq org-journal-time-format "")
 (setq org-journal-hide-entries-p nil)
 (setq org-journal-dir "~/Org/journal/")
+(setq org-journal-carryover-items "-TODO=\"DONE\"")
 (require 'org-journal)
 
 ;;; undo
@@ -131,9 +132,12 @@
 ;; (load-theme 'spacemacs-dark t) ; bleh
 ;; (load-theme 'zenburn t) ; bleh
 ;; (load-theme 'doom-one t) ; awesome 
-(load-theme 'doom-nord t) ; less awesome but still awesome
+;; (load-theme 'doom-one-light t) 
 ;; (load-theme 'doom-one-light t) 
 ;; (set-background-color BLACK)
+;; (load-theme 'doom-ayu-light t)
+;; (load-theme 'doom-city-lights t)
+;; (load-theme 'ayu-light-theme t)
 
 ;;; ivy
 (ivy-mode 1)
@@ -154,8 +158,8 @@
 ;;; visual stuff
 (setq org-hide-emphasis-markers t)
 (font-lock-add-keywords 'org-mode'(("^ +\\([-*]\\) " (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;; (require 'org-bullets)
+;; (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;;; auto save
 (require 'real-auto-save)
@@ -179,7 +183,7 @@
 ;;; org auto list
 (add-hook 'org-mode-hook (lambda () (org-autolist-mode)))
 
-;;; fringe
+;;; turn off fringe
 (fringe-mode 0)
 
 ;;; org stuff?
@@ -187,3 +191,10 @@
 
 ;;; show parens
 (show-paren-mode 1)
+
+(use-package ayu-theme
+  :config (load-theme 'ayu-light t))
+
+;; ;; set transparency
+;; (set-frame-parameter (selected-frame) 'alpha '(92 92))
+;; (add-to-list 'default-frame-alist '(alpha 92 92))

@@ -114,3 +114,5 @@ alias gru-console='~/Work/Compose/scripts/get-console gru web "bundle exec rake 
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+
+alias emacs='TERM=xterm-24bit emacs'

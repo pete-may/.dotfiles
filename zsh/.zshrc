@@ -33,11 +33,11 @@ prompt pure
 # ========                  Kube                     ========
 # ===========================================================
 
-autoload -U colors; colors
-
-source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
-
-RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+# autoload -U colors; colors
+#
+# source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
+#
+# RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
 # ===========================================================
@@ -135,8 +135,3 @@ bindkey "\e[F" end-of-line
 # ========                  New stuff                ========
 # ===========================================================
 
-eval "$(rbenv init -)"
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh

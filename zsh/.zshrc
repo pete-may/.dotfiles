@@ -1,17 +1,17 @@
 # .zshrc
 
 # ===========================================================
-# ========                 Bash                      ========
+# =========                Bash                     =========
 # ===========================================================
 
-for DOTFILE in `find ~/.dotfiles/bash`
+for DOTFILE in `find ~/.dotfiles/bash -d 1`
 do
     [ -f $DOTFILE ] && source $DOTFILE
 done
 
 
 # ===========================================================
-# ========                 Prompt                    ========
+# =========                Prompt                   =========
 # ===========================================================
 
 # Pure
@@ -19,11 +19,11 @@ fpath+=("$HOME/.dotfiles/zsh/pure")
 
 autoload -U promptinit; promptinit
 
-# zstyle ':prompt:pure:path' color 009 
-zstyle ':prompt:pure:path' color 048
-zstyle ':prompt:pure:prompt:success' color 104 
-zstyle ':prompt:pure:prompt:error' color 104 
-zstyle ':prompt:pure:git:branch' color 242 
+zstyle ':prompt:pure:path' color 009
+# zstyle ':prompt:pure:path' color 048
+zstyle ':prompt:pure:prompt:success' color 104
+zstyle ':prompt:pure:prompt:error' color 104
+zstyle ':prompt:pure:git:branch' color 242
 
 PURE_PROMPT_SYMBOL=""
 prompt pure
@@ -33,11 +33,11 @@ prompt pure
 # ========                  Kube                     ========
 # ===========================================================
 
-autoload -U colors; colors
-
-source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
-
-RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+# autoload -U colors; colors
+#
+# source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
+#
+# RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
 # ===========================================================
@@ -109,7 +109,7 @@ export WORDCHARS='-'
 export ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
 
 
-# # fix for cmd-arrow keys movement 
+# # fix for cmd-arrow keys movement
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[7~" beginning-of-line
@@ -135,5 +135,3 @@ bindkey "\e[F" end-of-line
 # ========                  New stuff                ========
 # ===========================================================
 
-eval "$(rbenv init -)"
-export PATH="/usr/local/opt/libpq/bin:$PATH"

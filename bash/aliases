@@ -12,6 +12,7 @@ alias chuck="ssh chuck && ^="
 ## Use Python3
 #alias python="/usr/local/bin/python3"
 alias pip="/usr/local/bin/pip3"
+alias pip2="/Users/petermay/Library/Python/2.7/bin/pip2"
 
 ## Run gremlin client 
 alias janusgraph="~/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/gremlin.sh"
@@ -32,6 +33,7 @@ alias h='history'
 alias k="kubectl"
 alias ktx="kubectx"
 alias kns="kubens"
+alias knode="kubectl get node --label-columns eks.amazonaws.com/nodegroup | sort -k6"
 
 ## cd
 alias ..="cd .."
@@ -54,7 +56,7 @@ alias g="git"
 alias G="| grep -i"
 
 # Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
+# alias c="tr -d '\n' | pbcopy"
 
 ## ps aux
 alias p="ps aux | grep"
@@ -93,7 +95,7 @@ alias sml='rlwrap sml'
 
 alias resetmouse='printf "\e[?1000l"'
 
-alias compose='DIR=`fd --type d -d 1 . $HOME/Work/Compose | fzf --delimiter / --with-nth -1` && if [ -z $DIR ]; then cd ~/Compose/Work; else cd "$DIR"; fi'
+alias c='DIR=`fd --type d -d 1 . $HOME/Work/Compose | fzf --delimiter / --with-nth -1` && if [ -z $DIR ]; then cd ~/Compose/Work; else cd "$DIR"; fi'
 
 alias zload="source $HOME/.zshrc" # reload .zshrc
 
@@ -116,3 +118,7 @@ alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 
 alias emacs='TERM=xterm-24bit emacs'
+
+alias vim='nvim'
+
+alias v='print -z -- nvim $(fzf)'

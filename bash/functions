@@ -18,7 +18,7 @@ function mans () {
 #   showa: to remind yourself of an alias (given some part of it)
 #   ------------------------------------------------------------
 function showa () {
-  /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; 
+  /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ;
 }
 
 # connect to gru hosts
@@ -28,20 +28,35 @@ function conn () {
 
 # print k8s secret
 function ks () {
-  kubectl get secret $1 -o yaml 
+  kubectl get secret $1 -o yaml | print_secret.rb
 }
 
-# print k8s configmap 
+# print k8s secret
 function kcm () {
-  kubectl get cm $1 -o yaml 
+  kubectl get cm $1 -o yaml | print_cm.rb
 }
 
-# print k8s pod logs 
+# print k8s configmap
+# function kcm () {
+  # kubectl get cm $1 -o yaml
+# }
+
+# print k8s pod logs
 function kl () {
   kubectl logs $1 -f
 }
 
-# print k8s pod logs 
+# print k8s kubetail
+function ktail () {
+  kubetail $1 -c $1
+}
+
+# print k8s pod logs
 function kpo () {
-  kubectl get po -l release=$1 
+  kubectl get po -l release=$1
+}
+
+# print pod logs - select compose container
+function klogs () {
+  kubectl logs $1 "${1%-*-*}" -f
 }

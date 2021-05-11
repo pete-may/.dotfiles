@@ -23,21 +23,21 @@ alt - n : yabai -m window --focus stack.next || yabai -m window --focus stack.fi
 #   | xargs -I{} yabai -m window --focus {}
 
 # move focused window
-shift + alt - h : yabai -m window --warp west 
-shift + alt - j : yabai -m window --warp south
-shift + alt - k : yabai -m window --warp north
-shift + alt - l : yabai -m window --warp east
+alt + ctrl - h : yabai -m window --warp west
+alt + ctrl - j : yabai -m window --warp south
+alt + ctrl - k : yabai -m window --warp north
+alt + ctrl - l : yabai -m window --warp east
 
 # move window to desktop
-shift + alt - p : yabai -m window --space prev
-shift + alt - n : yabai -m window --space next
+alt + shift - p : yabai -m window --space prev
+alt + shift - n : yabai -m window --space next
 
-shift + alt - 1 : yabai -m window --space 1
-shift + alt - 2 : yabai -m window --space 2
-shift + alt - 3 : yabai -m window --space 3
-shift + alt - 4 : yabai -m window --space 4
-shift + alt - 5 : yabai -m window --space 5
-shift + alt - 6 : yabai -m window --space 6
+alt + shift - 1 : yabai -m window --space 1
+alt + shift - 2 : yabai -m window --space 2
+alt + shift - 3 : yabai -m window --space 3
+alt + shift - 4 : yabai -m window --space 4
+alt + shift - 5 : yabai -m window --space 5
+alt + shift - 6 : yabai -m window --space 6
 
 # change layout of desktop
 alt - e : yabai -m space --layout bsp
@@ -53,9 +53,9 @@ alt - y : yabai -m window --toggle split
 alt - r : yabai -m window --toggle float
 
 # stack current window onto (direction) window
-alt + ctrl - h : yabai -m window --stack west
-alt + ctrl - j : yabai -m window --stack south 
-alt + ctrl - k : yabai -m window --stack north 
-alt + ctrl - l : yabai -m window --stack east 
- 
+alt +  shift - h : yabai -m window --stack west
+alt +  shift - j : yabai -m window --stack south
+alt +  shift - k : yabai -m window --stack north
+alt +  shift - l : yabai -m window --stack east
+
 

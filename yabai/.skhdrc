@@ -32,16 +32,17 @@ alt + ctrl - l : yabai -m window --warp east
 alt + shift - p : yabai -m window --space prev
 alt + shift - n : yabai -m window --space next
 
-alt + shift - 1 : yabai -m window --space 1
-alt + shift - 2 : yabai -m window --space 2
-alt + shift - 3 : yabai -m window --space 3
-alt + shift - 4 : yabai -m window --space 4
-alt + shift - 5 : yabai -m window --space 5
-alt + shift - 6 : yabai -m window --space 6
+alt - 1 : yabai -m window --space 1
+alt - 2 : yabai -m window --space 2
+alt - 3 : yabai -m window --space 3
+alt - 4 : yabai -m window --space 4
+alt - 5 : yabai -m window --space 5
+alt - 6 : yabai -m window --space 6
 
 # change layout of desktop
 alt - e : yabai -m space --layout bsp
 alt - t : yabai -m space --layout stack
+alt - g : yabai -m space --layout float
 
 # toggle window zoom
 alt - space : yabai -m window --toggle zoom-fullscreen
@@ -53,9 +54,14 @@ alt - y : yabai -m window --toggle split
 alt - r : yabai -m window --toggle float
 
 # stack current window onto (direction) window
-alt +  shift - h : yabai -m window --stack west
-alt +  shift - j : yabai -m window --stack south
-alt +  shift - k : yabai -m window --stack north
-alt +  shift - l : yabai -m window --stack east
+# alt + shift - h : yabai -m window --stack west
+# alt + shift - j : yabai -m window --stack south
+# alt + shift - k : yabai -m window --stack north
+# alt + shift - l : yabai -m window --stack east
+
+alt + shift - h : yabai -m window --stack west
+alt + shift - j : yabai -m window --stack south
+alt + shift - k : yabai -m window --stack north
+alt + shift - l : yabai -m window --stack east
 
 

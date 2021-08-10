@@ -24,10 +24,63 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       stack
-yabai -m config top_padding                  0
-yabai -m config bottom_padding               0
-yabai -m config left_padding                 13
-yabai -m config right_padding                13
-yabai -m config window_gap                   13
+yabai -m config top_padding                  15
+yabai -m config bottom_padding               15
+yabai -m config left_padding                 15
+yabai -m config right_padding                15
+yabai -m config window_gap                   15
+
+# turn off yabai for some apps
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^Cisco Webex Meetings$" manage=off
+yabai -m rule --add app="^Cisco AnyConnect Secure Mobility Client$" manage=off
+yabai -m rule --add app="^OpenVPN Connect$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^1Password 7$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Docker Desktop$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+
+# initial setup
+window_numbers=$(yabai -m query --spaces \
+    | jq '.[] | select(.display != 1) | .index'  \
+    | xargs -I{} yabai -m query --windows --space {} \
+    | jq "length")
+
+di=1
+for wn in $window_numbers; do
+    if [[ $(yabai -m query --spaces --space | jq -r '.type') = "bsp" || $(yabai -m query --spaces --space | jq '.display') -eq 1 ]]; then
+        di=$((di+1))
+		    break
+		fi
+
+    p=$((wn == 1 ? 400 : 15))
+
+    yabai -m config --space $di left_padding $p
+    yabai -m config --space $di right_padding $p
+
+    di=$((di+1))
+done
+
+# signals
+#    p=\$((\$(yabai -m query --windows --space | jq 'length') == 1 ? 400 : 15)) && \
+padding_refresh_command="[ \$(yabai -m query --spaces --space | jq '.display') -ne 1 ] && \
+	  if [[ \$(yabai -m query --spaces --space | jq -r '.type') = 'stack' || \$(yabai -m query --spaces --space | jq '.display') -eq 1 ]]; then p=401 ; else p=16 ; fi && \
+	  space=\$(yabai -m query --spaces --space | jq '.index') && \
+    yabai -m config --space \$space left_padding \$p && \
+    yabai -m config --space \$space right_padding \$p"
+
+# yabai -m signal --add event=window_created action="$padding_refresh_command"
+# yabai -m signal --add event=window_destroyed action="$padding_refresh_command"
+# yabai -m signal --add event=window_resized action="$padding_refresh_command"
+# yabai -m signal --add event=application_launched action="$padding_refresh_command"
+# yabai -m signal --add event=application_terminated action="$padding_refresh_command"
+yabai -m signal --add event=space_changed action="$padding_refresh_command"
+yabai -m signal --add event=window_moved action="$padding_refresh_command"
 
 echo "yabai configuration loaded.."

@@ -97,7 +97,7 @@ nnoremap <Leader>% :vsp<CR>
 nnoremap <Leader>" :sp<CR>
 map <Leader><Leader> :b#<CR><esc>
 
-" nnoremap <Leader>W :g/^$/d<CR>gg<c-v>GI"<esc>gg<c-v>G$A",<esc>ggVGJ$xa]<esc>0i[<esc>
+nnoremap <Leader>W :g/^$/d<CR>gg<c-v>GI"<esc>gg<c-v>G$A",<esc>ggVGJ$xa]<esc>0i[<esc>
 
 nnoremap Y y$
 

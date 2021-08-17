@@ -51,7 +51,7 @@ alt - space : yabai -m window --toggle zoom-fullscreen
 alt - y : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-alt - r : yabai -m window --toggle float
+# alt - r : yabai -m window --toggle float
 
 # stack current window onto (direction) window
 # alt + shift - h : yabai -m window --stack west
@@ -64,4 +64,4 @@ alt + shift - j : yabai -m window --stack south
 alt + shift - k : yabai -m window --stack north
 alt + shift - l : yabai -m window --stack east
 
-
+alt - r : ~/.dotfiles/bash/scripts/refresh_yabai.sh

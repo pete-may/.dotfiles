@@ -111,7 +111,7 @@ alias gogo="cd ~/go/src/github.ibm.com/compose"
 
 alias console="~/Work/Compose/scripts/get-console"
 
-alias gru-console='~/Work/Compose/scripts/get-console gru web "bundle exec rake console"'
+alias gru='~/Work/Compose/scripts/get-console gru web "bundle exec rake console"'
 
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 

@@ -45,13 +45,19 @@ yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Google Chrome$" title="^Untitled - Google Chrome$" manage=off
+yabai -m rule --add app="^Installer$" manage=off
 
 padding_refresh_command="if [[ \$(yabai -m query --spaces --space | jq -r '.type') = 'stack' && \$(yabai -m query --spaces --space | jq '.display') -ne 1 ]]; then p=401 ; else p=16 ; fi && \
 	  space=\$(yabai -m query --spaces --space | jq '.index') && \
     yabai -m config --space \$space left_padding \$p && \
     yabai -m config --space \$space right_padding \$p"
 
+check_if_single_window_command="[ \$(yabai -m query --windows --space | jq length) -eq 1 ] && yabai -m space --layout stack"
+
 yabai -m signal --add event=space_changed action="$padding_refresh_command"
 yabai -m signal --add event=window_moved action="$padding_refresh_command"
+
+yabai -m signal --add event=window_destroyed action="$check_if_single_window_command && $padding_refresh_command"
 
 echo "yabai configuration loaded.."

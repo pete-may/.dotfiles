@@ -48,7 +48,7 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Google Chrome$" title="^Untitled - Google Chrome$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 
-padding_refresh_command="if [[ \$(yabai -m query --spaces --space | jq -r '.type') = 'stack' && \$(yabai -m query --spaces --space | jq '.display') -ne 1 ]]; then p=401 ; else p=16 ; fi && \
+padding_refresh_command="if [[ \$(yabai -m query --spaces --space | jq -r '.type') = 'stack' && \$(yabai -m query --displays --display | jq -r '.uuid') = '7A8E8C90-5A44-8992-2AC9-7E6F2F68AB4A' ]]; then p=401 ; else p=16 ; fi && \
 	  space=\$(yabai -m query --spaces --space | jq '.index') && \
     yabai -m config --space \$space left_padding \$p && \
     yabai -m config --space \$space right_padding \$p"

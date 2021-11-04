@@ -27,7 +27,7 @@ set tabstop=2
 " when indenting with '>', use 2 spaces width
 set shiftwidth=2
 " " On pressing tab, insert 2 spaces
-" set expandtab
+set expandtab
 
 " scroll one line (I commented out because of disabled mouse)
 " :map <ScrollWheelUp> <C-Y>
@@ -86,7 +86,7 @@ set splitright
 " Map quit insert mode to 'ctrl-c'
 :inoremap <C-c> <C-[>
 
-inoremap xx <Esc>
+inoremap <C-g> <Esc>
 
 nnoremap <Leader>bn :bn<CR>
 nnoremap <Leader>bp :bp<CR>
@@ -179,3 +179,4 @@ colorscheme ayu
 
 nnoremap <esc> :noh<return><esc>
 
+let g:pear_tree_repeatable_expand = 0

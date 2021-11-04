@@ -60,4 +60,7 @@ yabai -m signal --add event=window_moved action="$padding_refresh_command"
 
 yabai -m signal --add event=window_destroyed action="$check_if_single_window_command && $padding_refresh_command"
 
+yabai_query_current_space="\$(yabai -m query --spaces --space | jq '.index' )"
+yabai -m signal --add event=window_deminimized action="yabai -m window $YABAI_WINDOW_ID --space $yabai_query_current_space"
+
 echo "yabai configuration loaded.."

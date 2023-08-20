@@ -19,3 +19,7 @@ export PATH="/usr/local/smlnj/bin:$PATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
 export PATH="/Users/petermay/.dotfiles/bash/scripts:$PATH"
+
+export PATH="/Users/petermay/.cargo/bin:$PATH"
+
+export PATH="/Applications/WezTerm.app/Contents/MacOS:$PATH"

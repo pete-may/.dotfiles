@@ -10,8 +10,8 @@ alt - w : ~/.dotfiles/scripts/close_current_space.sh
 # cmd + ctrl - l : yabai -m window --focus east
 
 # cycle through windows (stack)
-cmd + ctrl - p : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
-cmd + ctrl - n : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+# cmd + ctrl - p : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+# cmd + ctrl - n : yabai -m window --focus stack.next || yabai -m window --focus stack.first
 
 # cycle through windows bsp - codes are for '[' and ']' because yabai reserves those chars
 cmd + ctrl - 0x21 : yabai -m window --focus next || yabai -m window --focus first
@@ -57,11 +57,13 @@ cmd + ctrl - 6 : yabai -m window --space 6
 
 # change layout of desktop
 cmd + ctrl - e : yabai -m space --layout bsp
-cmd + ctrl - t : yabai -m space --layout stack
+cmd + ctrl - t : test $(yabai -m query --windows --window | jq -r '."is-floating"') = "true" && \
+                              yabai -m window --toggle float; \
+                              yabai -m space --layout stack
 cmd + ctrl - g : yabai -m space --layout float
 
 # toggle window zoom
-cmd + ctrl - space : yabai -m window --toggle zoom-fullscreen
+# cmd + ctrl - space : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 cmd + ctrl - y : yabai -m window --toggle split
@@ -82,3 +84,24 @@ cmd + ctrl - l : yabai -m window --stack east
 # cmd + ctrl - l : yabai -m window --stack east
 
 # cmd + ctrl - r : ~/.dotfiles/bash/scripts/refresh_yabai.sh
+
+# from alin23
+
+# Maximise
+cmd + ctrl - up       : test $(yabai -m query --windows --window | jq -r '."is-floating"') = "false" && \
+                              yabai -m window --toggle float; \
+                              yabai -m window --grid 10:10:0:0:10:10
+# Almost Maximise
+cmd + ctrl - down     : test $(yabai -m query --windows --window | jq -r '."is-floating"') = "false" && \
+                              yabai -m window --toggle float; \
+                              yabai -m window --grid 10:10:1:1:9:9
+# Tile Window Left
+cmd - left     : test $(yabai -m query --windows --window | jq -r '."is-floating"') = "false" && \
+                              # yabai -m config --space $(yabai -m query --spaces --space | jq '.index') left_padding 0 \
+                              yabai -m window --toggle float; \
+                              yabai -m window --grid 10:10:0:0:5:10
+# Tile Window Right
+cmd - right    : test $(yabai -m query --windows --window | jq -r '."is-floating"') = "false" && \
+                              # yabai -m config --space $(yabai -m query --spaces --space | jq '.index') left_padding 0 \
+                              yabai -m window --toggle float; \
+                              yabai -m window --grid 10:10:5:0:5:10

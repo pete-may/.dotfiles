@@ -24,11 +24,11 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       stack
-yabai -m config top_padding                  15
-yabai -m config bottom_padding               15
-yabai -m config left_padding                 15
-yabai -m config right_padding                15
-yabai -m config window_gap                   15
+yabai -m config top_padding                  5
+yabai -m config bottom_padding               5
+yabai -m config left_padding                 5
+yabai -m config right_padding                5
+yabai -m config window_gap                   5
 
 # turn off yabai for some apps
 yabai -m rule --add app="^System Information$" manage=off
@@ -47,13 +47,42 @@ yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Google Chrome$" title="^Untitled - Google Chrome$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Anki$" manage=off
+yabai -m rule --add app="^Clock$" manage=off
+yabai -m rule --add app="^AltTab$" manage=off
 
-padding_refresh_command="if [[ \$(yabai -m query --spaces --space | jq -r '.type') = 'stack' && \$(yabai -m query --displays --display | jq -r '.uuid') = '7A8E8C90-5A44-8992-2AC9-7E6F2F68AB4A' ]]; then p=401 ; else p=16 ; fi && \
-	  space=\$(yabai -m query --spaces --space | jq '.index') && \
-    yabai -m config --space \$space left_padding \$p && \
-    yabai -m config --space \$space right_padding \$p"
+# oldstuff
+# padding_refresh_command="if [[ \$(yabai -m query --spaces --space | jq -r '.type') = 'stack' && \$(yabai -m query --displays --display | jq -r '.uuid') = '7A8E8C90-5A44-8992-2AC9-7E6F2F68AB4A' ]]; then p=401 ; else p=16 ; fi && \
+# 	  space=\$(yabai -m query --spaces --space | jq '.index') && \
+#     yabai -m config --space \$space left_padding \$p && \
+#     yabai -m config --space \$space right_padding \$p"
 
-check_if_single_window_command="[ \$(yabai -m query --windows --space | jq length) -eq 1 ] && yabai -m space --layout stack"
+# check_if_single_window_command="[ \$(yabai -m query --windows --space | jq length) -eq 1 ] && yabai -m space --layout stack"
+# oldstuff
+
+check_if_single_window="[ \$(yabai -m query --windows --space | jq length) -eq 1 ]"
+
+check_if_curved_monitor="[ \$(yabai -m query --displays --display | jq -r '.uuid') = '7A8E8C90-5A44-8992-2AC9-7E6F2F68AB4A' ]"
+
+# padding_refresh_command="if $check_if_single_window ; then p=16 ; else p=180 ; fi && \
+# 	  space=\$(yabai -m query --spaces --space | jq '.index') && \
+#     yabai -m config --space \$space left_padding \$p && \
+#     if $check_if_curved_monitor ; then p=401 ; else p=16 ; fi && \
+#     yabai -m config --space \$space left_padding \$p && \
+#     yabai -m config --space \$space right_padding \$p"
+
+
+padding_refresh_command="space=\$(yabai -m query --spaces --space | jq '.index') && \
+    if $check_if_curved_monitor ; then p=401 && \
+        yabai -m config --space \$space left_padding \$p && \
+        yabai -m config --space \$space right_padding \$p ; \
+    else \
+        if $check_if_single_window ; then p=5 ; else p=165 ; fi && \
+        yabai -m config --space \$space left_padding \$p && \
+        yabai -m config --space \$space right_padding 5 ; \
+    fi"
+
 
 yabai -m signal --add event=space_changed action="$padding_refresh_command"
 yabai -m signal --add event=window_moved action="$padding_refresh_command"

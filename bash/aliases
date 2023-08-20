@@ -46,6 +46,7 @@ alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
 alias des="cd ~/Desktop"
 alias proj="cd ~/Projects"
+alias proj='DIR=$(fd --type d -d 1 . $HOME/Projects -x echo | fzf --delimiter / --with-nth -1) && cd $DIR'
 alias dot="cd ~/.dotfiles"
 alias scratch="cd ~/Documents/scratch"
 
@@ -120,3 +121,9 @@ alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 alias vim='nvim'
 
 alias v='print -z -- nvim $(fzf)'
+
+
+### NEW STUFF
+
+alias snippets="cd \"/Users/petermay/Library/Mobile Documents/iCloud~md~obsidian/Documents/Pete's mobile vault/.obsidian/snippets\""
+

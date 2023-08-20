@@ -31,7 +31,7 @@ export GOPATH="$HOME/go"
 
 # FZF
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-export FZF_DEFAULT_COMMAND='fd --hidden --type f'
+export FZF_DEFAULT_COMMAND='fd --hidden --type f --exclude .git --exclude venv --exclude __pycache__'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --hidden --type d'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
@@ -39,3 +39,6 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export EDITOR=nvim
 
 export GO111MODULE=auto
+
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"

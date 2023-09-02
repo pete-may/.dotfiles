@@ -40,14 +40,14 @@ require("lazy").setup({
     {"tpope/vim-rsi"},
     {"junegunn/fzf"},
     {"junegunn/fzf.vim"},
-    -- {"vim-scripts/VimCompletesMe"},
+    {"vim-scripts/VimCompletesMe"},
     -- {"lifepillar/vim-mucomplete"},
     -- take it or leave it
     {"dense-analysis/ale"},
     {"tmsvg/pear-tree"},
     {"sheerun/vim-polyglot"},
     {"airblade/vim-rooter"},
-    {"github/copilot.vim"},
+    -- {"github/copilot.vim"},
     -- trying out
     -- {"tpope/vim-obsession"},
     -- {"tpope/vim-vinegar"},
@@ -56,6 +56,7 @@ require("lazy").setup({
     {"vim-airline/vim-airline-themes"},
     -- {"nvim-tree/nvim-tree.lua"}
     {"preservim/nerdtree"},
+    {"fatih/vim-go"}
 })
 
 -- ********
@@ -109,6 +110,8 @@ vim.cmd("colorscheme rose-pine-moon")
 vim.cmd("set number")
 vim.cmd("set mouse=")
 vim.cmd("set incsearch")
+vim.cmd("set invlist")
+
 
 
 vim.g.mapleader = ' '
@@ -227,9 +230,9 @@ vim.api.nvim_create_autocmd(
 )
 
 -- autocmd vimenter * if !argc() | NERDTree | endif
-vim.api.nvim_create_autocmd(
-    "VimEnter", {
-        pattern = {"*"},
-        command = "if !argc() | NERDTree | endif",
-    }
-)
+-- vim.api.nvim_create_autocmd(
+--     "VimEnter", {
+--         pattern = {"*"},
+--         command = "if !argc() | NERDTree | endif",
+--     }
+-- )

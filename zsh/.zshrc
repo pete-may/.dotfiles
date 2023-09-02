@@ -33,11 +33,9 @@ prompt pure
 # ========                  Kube                     ========
 # ===========================================================
 
-#autoload -U colors; colors
-
-#source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
-
-#RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+autoload -U colors; colors
+source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
 # ===========================================================
@@ -143,3 +141,6 @@ bindkey "\e[F" end-of-line
 
 #export JAVA_HOME=$(/usr/libexec/java_home)
 
+source `icdctl setup zsh`
+
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

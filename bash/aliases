@@ -11,8 +11,8 @@ alias chuck="ssh chuck && ^="
 
 ## Use Python3
 #alias python="/usr/local/bin/python3"
-alias pip="/usr/local/bin/pip3"
-alias pip2="/Users/petermay/Library/Python/2.7/bin/pip2"
+# alias pip="/usr/local/bin/pip3"
+# alias pip2="/Users/petermay/Library/Python/2.7/bin/pip2"
 
 ## Run gremlin client 
 alias janusgraph="~/Documents/JanusGraph/0.3.0/app/janusgraph-0.3.0-hadoop2/bin/gremlin.sh"
@@ -122,8 +122,12 @@ alias vim='nvim'
 
 alias v='print -z -- nvim $(fzf)'
 
+alias icd='DIR=$(fd --type d -d 1 . $HOME/Work/ibm-cloud-databases $HOME/Work/cdcp -x echo | fzf --delimiter / --with-nth -1) && cd $DIR'
 
 ### NEW STUFF
 
 alias snippets="cd \"/Users/petermay/Library/Mobile Documents/iCloud~md~obsidian/Documents/Pete's mobile vault/.obsidian/snippets\""
 
+alias vimrc='vim ~/.config/nvim/init.lua'
+alias aliases='vim ~/.dotfiles/bash/aliases'
+alias wezrc='vim ~/.config/wezterm/wezterm.lua'

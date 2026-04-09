@@ -19,8 +19,8 @@ fpath+=("$HOME/.dotfiles/zsh/pure")
 
 autoload -U promptinit; promptinit
 
-zstyle ':prompt:pure:path' color 009
-# zstyle ':prompt:pure:path' color 048
+# zstyle ':prompt:pure:path' color 009  # old one
+zstyle ':prompt:pure:path' color 131
 zstyle ':prompt:pure:prompt:success' color 104
 zstyle ':prompt:pure:prompt:error' color 104
 zstyle ':prompt:pure:git:branch' color 242
@@ -33,9 +33,9 @@ prompt pure
 # ========                  Kube                     ========
 # ===========================================================
 
-autoload -U colors; colors
-source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
-RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+# autoload -U colors; colors
+# source ~/.dotfiles/zsh/zsh-kubectl-prompt/kubectl.zsh
+# RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 
 # ===========================================================
@@ -141,6 +141,49 @@ bindkey "\e[F" end-of-line
 
 #export JAVA_HOME=$(/usr/libexec/java_home)
 
-source `icdctl setup zsh`
+# source `icdctl setup zsh`
 
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+# export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
+export PATH="/opt/homebrew/opt/pyqt@5/5.15.4_1/bin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+fpath=(~/.config/zsh/completion $fpath)
+autoload -Uz compinit ; compinit
+
+# Allow Ctrl-z to toggle between suspend and resume 
+function Resume {
+    if [[ -z $BUFFER ]] then
+        if [[ $(jobs) != "" ]] then
+            fg &> /dev/null
+        zle accept-line
+    fi
+    else
+        zle expand-or-complete
+    fi
+}
+zle -N Resume
+# bindkey "^Z" Resume
+bindkey "^I" Resume
+
+
+bindkey '^\' backward-delete-char
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# Created by `pipx` on 2026-01-26 14:58:57
+export PATH="$PATH:/Users/petermay/.local/bin"

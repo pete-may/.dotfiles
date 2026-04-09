@@ -57,9 +57,9 @@ cmd + ctrl - 6 : yabai -m window --space 6
 
 # change layout of desktop
 cmd + ctrl - e : yabai -m space --layout bsp
-cmd + ctrl - t : test $(yabai -m query --windows --window | jq -r '."is-floating"') = "true" && \
-                              yabai -m window --toggle float; \
-                              yabai -m space --layout stack
+# cmd + ctrl - t : test $(yabai -m query --windows --window | jq -r '."is-floating"') = "true" && \
+#                               yabai -m window --toggle float; \
+#                               yabai -m space --layout stack
 cmd + ctrl - g : yabai -m space --layout float
 
 # toggle window zoom

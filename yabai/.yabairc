@@ -1,6 +1,10 @@
 #!/usr/bin/env sh
 
-# global settings
+
+############################
+#     DEFAULT SETTINGS     #
+############################
+
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
 yabai -m config window_placement             second_child
@@ -22,7 +26,11 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
-# general space settings
+
+#####################################
+#     DEFAULT LAYOUT AND PADDING    #
+#####################################
+
 yabai -m config layout                       stack
 yabai -m config top_padding                  5
 yabai -m config bottom_padding               5
@@ -30,7 +38,11 @@ yabai -m config left_padding                 5
 yabai -m config right_padding                5
 yabai -m config window_gap                   5
 
-# turn off yabai for some apps
+
+#####################################
+#     DISABLE YABAI ON SOME APPS    #
+#####################################
+
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Cisco Webex Meetings$" manage=off
 yabai -m rule --add app="^Cisco AnyConnect Secure Mobility Client$" manage=off
@@ -41,7 +53,6 @@ yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Music$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^1Password 7$" manage=off
-yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^Dictionary$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
@@ -52,44 +63,69 @@ yabai -m rule --add app="^Anki$" manage=off
 yabai -m rule --add app="^Clock$" manage=off
 yabai -m rule --add app="^AltTab$" manage=off
 
-# oldstuff
-# padding_refresh_command="if [[ \$(yabai -m query --spaces --space | jq -r '.type') = 'stack' && \$(yabai -m query --displays --display | jq -r '.uuid') = '7A8E8C90-5A44-8992-2AC9-7E6F2F68AB4A' ]]; then p=401 ; else p=16 ; fi && \
-# 	  space=\$(yabai -m query --spaces --space | jq '.index') && \
-#     yabai -m config --space \$space left_padding \$p && \
-#     yabai -m config --space \$space right_padding \$p"
 
-# check_if_single_window_command="[ \$(yabai -m query --windows --space | jq length) -eq 1 ] && yabai -m space --layout stack"
-# oldstuff
+############################################################################
+#    SET LEFT X-PADDING BASED ON EXTERNAL MONITOR OR STAGE MANAGER (DISABLED)     #
+############################################################################
 
-check_if_single_window="[ \$(yabai -m query --windows --space | jq length) -eq 1 ]"
-
-check_if_curved_monitor="[ \$(yabai -m query --displays --display | jq -r '.uuid') = '7A8E8C90-5A44-8992-2AC9-7E6F2F68AB4A' ]"
-
-# padding_refresh_command="if $check_if_single_window ; then p=16 ; else p=180 ; fi && \
-# 	  space=\$(yabai -m query --spaces --space | jq '.index') && \
-#     yabai -m config --space \$space left_padding \$p && \
-#     if $check_if_curved_monitor ; then p=401 ; else p=16 ; fi && \
-#     yabai -m config --space \$space left_padding \$p && \
-#     yabai -m config --space \$space right_padding \$p"
-
-
-padding_refresh_command="space=\$(yabai -m query --spaces --space | jq '.index') && \
-    if $check_if_curved_monitor ; then p=401 && \
-        yabai -m config --space \$space left_padding \$p && \
-        yabai -m config --space \$space right_padding \$p ; \
-    else \
-        if $check_if_single_window ; then p=5 ; else p=165 ; fi && \
-        yabai -m config --space \$space left_padding \$p && \
-        yabai -m config --space \$space right_padding 5 ; \
-    fi"
+# check_if_curved_monitor="[[ \$(yabai -m query --displays --display | jq -r '.uuid') = '7A8E8C90-5A44-8992-2AC9-7E6F2F68AB4A' ]]"
+# stage_manager_disabled="[[ \$(defaults read com.apple.WindowManager GloballyEnabled) -eq 0 ]]"
+# check_if_single_window="[[ \$(yabai -m query --windows --space | jq length) -eq 1 ]]"
+#
+# padding_refresh_command="space=\$(yabai -m query --spaces --space | jq '.index') && \
+#     if $check_if_curved_monitor ; then p=401 && \
+#         yabai -m config --space \$space left_padding \$p && \
+#         yabai -m config --space \$space right_padding \$p ; \
+#     else \
+#         if $stage_manager_disabled || $check_if_single_window ; then p=5 ; else p=180 ; fi && \
+#         yabai -m config --space \$space left_padding \$p && \
+#         yabai -m config --space \$space right_padding 5 ; \
+#     fi"
+#
+#
+# yabai -m signal --add event=space_changed action="$padding_refresh_command"
+# yabai -m signal --add event=window_moved action="$padding_refresh_command"
+# yabai -m signal --add event=window_destroyed action="$padding_refresh_command"
 
 
-yabai -m signal --add event=space_changed action="$padding_refresh_command"
-yabai -m signal --add event=window_moved action="$padding_refresh_command"
+##########################################################
+#    SET TOP Y-PADDING CREATING STACKED WINDOW EFFECT    #
+##########################################################
 
-yabai -m signal --add event=window_destroyed action="$check_if_single_window_command && $padding_refresh_command"
+# yabai -m config layout float
+# create_window_stack="i=0 && x=1470 && y=956 && a=20 && b=33 && c=36 && \
+#         for ID in \$(yabai -m query --windows --space | jq '.[].id' | tail -r) ; do \
+#             xpos=\$(( a * \$i )) && \
+#             if [[ \$i -ne 0 ]] ; then ypos=\$(( c + ( b * \$i ))) ; else ypos=\$(( b * \$i )) ; fi && \
+#             if [[ \$i -ne 0 ]] ; then ysize=\$(( y - ( b * \$i ) - c )) ; else ysize=\$(( y - ( b * \$i ))) ; fi && \
+#             yabai -m window \$ID --move abs:0:\$ypos && \
+#             yabai -m window \$ID --resize abs:1470:\$ysize && \
+#             (( i++ )) ; \
+#         done"
 
-yabai_query_current_space="\$(yabai -m query --spaces --space | jq '.index' )"
-yabai -m signal --add event=window_deminimized action="yabai -m window $YABAI_WINDOW_ID --space $yabai_query_current_space"
+## EXPERIMENTAL
+yabai -m config layout float
+create_window_stack="i=0 && x=1470 && y=956 && a=20 && b=33 && c=36 && \
+        for ID in \$(yabai -m query --windows --space | jq '.[].id' | tail -r) ; do \
+            app_name=\$(yabai -m query --windows --window \$ID | jq -r '.app') && \
+            list_of_apps_to_leave_alone=(\"System Settings\" \
+                                         \"Raycast\" \
+                                         \"Notes\" \
+                                         \"QuickTime Player\" \
+                                         \"Finder\") && \
+            if [[ ! \" \${list_of_apps_to_leave_alone[*]} \" =~ [[:space:]]\${app_name}[[:space:]] ]]; then \
+                xpos=\$(( a * \$i )) && \
+                if [[ \$i -ne 0 ]] ; then ypos=\$(( c + ( b * \$i ))) ; else ypos=\$(( b * \$i )) ; fi && \
+                if [[ \$i -ne 0 ]] ; then ysize=\$(( y - ( b * \$i ) - c )) ; else ysize=\$(( y - ( b * \$i ))) ; fi && \
+                yabai -m window \$ID --move abs:0:\$ypos && \
+                yabai -m window \$ID --resize abs:1470:\$ysize && \
+                (( i++ )) ; \
+            fi ; \
+        done"
+
+
+yabai -m signal --add event=window_focused action="$create_window_stack"
+yabai -m signal --add event=window_moved action="$create_window_stack"
+
 
 echo "yabai configuration loaded.."

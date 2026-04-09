@@ -25,3 +25,10 @@ export PATH="/Applications/WezTerm.app/Contents/MacOS:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
 # export PATH="/usr/local/opt/python/libexec/bin:/usr/local/share/python:$PATH"
+
+
+
+export PATH="/Users/petermay/.config/emacs/bin:$PATH"
+
+
+

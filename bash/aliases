@@ -45,8 +45,8 @@ alias -- -="cd -" # Go to previous dir with -
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads"
 alias des="cd ~/Desktop"
-alias proj="cd ~/Projects"
-alias proj='DIR=$(fd --type d -d 1 . $HOME/Projects -x echo | fzf --delimiter / --with-nth -1) && cd $DIR'
+# alias proj="cd ~/Projects"
+alias proj='DIR=$(fd --type d -d 1 . $HOME/Code/github.com/pete-may -x echo | fzf --delimiter / --with-nth -1) && cd $DIR'
 alias dot="cd ~/.dotfiles"
 alias scratch="cd ~/Documents/scratch"
 
@@ -116,7 +116,7 @@ alias gru='~/Work/Compose/scripts/get-console gru web "bundle exec rake console"
 
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
-alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+alias vscode='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 
 alias vim='nvim'
 
@@ -128,6 +128,15 @@ alias icd='DIR=$(fd --type d -d 1 . $HOME/Work/ibm-cloud-databases $HOME/Work/cd
 
 alias snippets="cd \"/Users/petermay/Library/Mobile Documents/iCloud~md~obsidian/Documents/Pete's mobile vault/.obsidian/snippets\""
 
-alias vimrc='vim ~/.config/nvim/init.lua'
 alias aliases='vim ~/.dotfiles/bash/aliases'
+
+alias snip="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Pete\'s\ mobile\ vault/.obsidian/snippets"
+
+alias vimrc='vim ~/.config/nvim/init.lua'
 alias wezrc='vim ~/.config/wezterm/wezterm.lua'
+alias zshrc="vim ~/.zshrc"
+# alias wez="vim ~/.config/wezterm/wezterm.lua"
+
+
+alias code='cd ~/Code/'
+

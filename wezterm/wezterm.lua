@@ -275,7 +275,7 @@ config.window_background_gradient = {
   -- Smaller values, or 0, will make bands more prominent.
   -- The default value is 64 which gives decent looking results
   -- on a retina macbook pro display.
-  -- noise = 64,
+  noise = 35,
 
   -- By default, the gradient smoothly transitions between the colors.
   -- You can adjust the sharpness by specifying the segment_size and
@@ -327,5 +327,7 @@ config.window_content_alignment = {
 --     window:set_config_overrides(overrides)
 --   end
 -- end)
+
+-- config.front_end = "WebGpu"
 
 return config
